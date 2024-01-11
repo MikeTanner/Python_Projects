@@ -1,6 +1,7 @@
 import random
 import time
 from multi_d_array_to_txt import txt_to_array, array_to_txt
+import gol_db_functions
 
 
 class game_of_life:
@@ -84,7 +85,10 @@ class game_of_life:
             self.save_game()
 
     def save_game(self):
-        array_to_txt(self.game_cache, (self.n, self.width, self.height))
+        # print(self.game_cache)
+        gol_db_functions.save(self.game_cache, self.n, self.width, self.height)
+        print(self.game_cache)
+        # array_to_txt(self.game_cache, (self.n, self.width, self.height))
 
 
 class game_of_life_playback:
